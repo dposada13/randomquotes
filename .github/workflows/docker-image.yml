@@ -1,8 +1,6 @@
 name: Docker Image CI
 
 on:
-docker swarm join --token SWMTKN-1-0pvvlwecrybxwznffepl3f7utus852wv1mjwitd5jv4otzc0yu-0xzu3vex3tkrpzafz5wpm03kl 10.128.0.4:2377
-
 
  push:
     branches: [ main ]
@@ -24,7 +22,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASS
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag docker/dposada13/express-randomquotes:latest
+      run: docker build . --file Dockerfile --tag dposada13/express-randomquotes:latest
       
     - name: Docker Push
-      run: docker push docker/dposada13/express-randomquotes
+      run: docker push dposada13/express-randomquotes
